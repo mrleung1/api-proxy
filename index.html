@@ -1,10 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>API Proxy</title>
+  <title>Cheap AI API</title>
 </head>
+
 <body>
-  <h1>DU MING SHI</h1>
-  <p>My AI API website is online.</p>
+
+<h1>Cheap AI API Gateway</h1>
+
+<p>Create your account:</p>
+
+<input id="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="signup()">
+Sign Up
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script>
+
+const supabaseUrl = 'https://lkqsenlrpfuwjrragyzo.supabase.co'
+const supabaseKey = 'sb_publishable_KskVSPr8aCfIYNLi3_Vy5Q_0QnyfE7e'
+
+const client = supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+)
+
+async function signup() {
+
+  const email =
+    document.getElementById('email').value
+
+  const password =
+    document.getElementById('password').value
+
+  const { data, error } =
+    await client.auth.signUp({
+      email,
+      password
+    })
+
+  if(error) {
+    alert(error.message)
+  } else {
+    alert("Account created!")
+  }
+}
+
+</script>
+
 </body>
 </html>
