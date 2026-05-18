@@ -16,7 +16,12 @@
 <button onclick="signup()">
 Sign Up
 </button>
+  
+<button onclick="getApiKey()">
+Get API Key
+</button>
 
+<p id="apikey"></p>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
 <script>
@@ -49,7 +54,16 @@ async function signup() {
     alert("Account created!")
   }
 }
+function getApiKey() {
 
+  const fakeKey =
+    "sk-" +
+    Math.random().toString(36).substring(2)
+
+  document.getElementById(
+    "apikey"
+  ).innerText = fakeKey
+}
 </script>
 
 </body>
